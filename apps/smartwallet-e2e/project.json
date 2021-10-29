@@ -1,0 +1,29 @@
+{
+  "root": "apps/smartwallet-e2e",
+  "sourceRoot": "apps/smartwallet-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/smartwallet-e2e/cypress.json",
+        "devServerTarget": "smartwallet:serve",
+        "tsConfig": "apps/smartwallet-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "smartwallet:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/smartwallet-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["smartwallet"]
+}

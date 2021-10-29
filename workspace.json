@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "smartwallet": "apps/smartwallet",
+    "smartwallet-e2e": "apps/smartwallet-e2e"
+  }
+}

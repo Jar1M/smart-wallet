@@ -1,0 +1,72 @@
+{
+  "root": "apps/smartwallet",
+  "sourceRoot": "apps/smartwallet/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/smartwallet",
+        "index": "apps/smartwallet/src/index.html",
+        "baseHref": "/",
+        "main": "apps/smartwallet/src/main.tsx",
+        "polyfills": "apps/smartwallet/src/polyfills.ts",
+        "tsConfig": "apps/smartwallet/tsconfig.app.json",
+        "assets": [
+          "apps/smartwallet/src/favicon.ico",
+          "apps/smartwallet/src/assets"
+        ],
+        "styles": ["apps/smartwallet/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/smartwallet/src/environments/environment.ts",
+              "with": "apps/smartwallet/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "smartwallet:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "smartwallet:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/smartwallet/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/smartwallet"],
+      "options": {
+        "jestConfig": "apps/smartwallet/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,44 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  master:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout [master]
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn nx affected --target=lint --all --parallel --max-parallel=3
+      - run: yarn nx affected --target=test --all --parallel --max-parallel=2
+      - run: yarn nx affected --target=build --all --parallel --max-parallel=3
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn nx affected --target=lint --all --parallel --max-parallel=3
+      - run: yarn nx affected --target=test --all --parallel --max-parallel=2
+      - run: yarn nx affected --target=build --all --parallel --max-parallel=3

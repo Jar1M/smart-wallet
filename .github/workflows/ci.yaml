@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
+          cache: 'yarn'
       - run: yarn install
       - run: yarn nx affected --target=lint --all --parallel --max-parallel=3
       - run: yarn nx affected --target=test --all --parallel --max-parallel=2
@@ -36,6 +37,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
+          cache: 'yarn'
       - run: yarn install
       - run: yarn nx affected --target=lint --all --parallel --max-parallel=3
       - run: yarn nx affected --target=test --all --parallel --max-parallel=2

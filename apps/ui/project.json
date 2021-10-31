@@ -94,6 +94,13 @@
           "quiet": true
         }
       }
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "options": {
+        "config": "apps/ui/.stylelintrc.json",
+        "lintFilePatterns": ["apps/ui/**/*.css", "apps/ui/**/*.scss"]
+      }
     }
   },
   "tags": []

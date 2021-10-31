@@ -8,29 +8,31 @@ Fixes # (issue)
 
 ## Type of change
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] Docs
+- [ ] Style
 - [ ] Refactor (non-breaking change which doesnt add new functionality)
+- [ ] Performance
+- [ ] Test
+- [ ] Build
+- [ ] Continuous Integration
+- [ ] Revert
 
 ## Scope of change
 
-- [ ] app
-     - [ ] smart-wallet
-     - [ ] ui
-- [ ] documentation
-- [ ] lint
-- [ ] test
-- [ ] continuos integration
+- [ ] smartwallet
+- [ ] smartwallet-e2e
+- [ ] ui
+- [ ] ui-e2e
 
 ## How Has This Been Tested?
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
-- [ ] UnitTest
-- [ ] UI Test
-- [ ] Manual Test
-
+- [ ] Unit Tests
+- [ ] UI Tests
+- [ ] Manual Tests
 
 ## Checklist:
 

@@ -66,6 +66,16 @@
         "jestConfig": "apps/smartwallet/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "options": {
+        "config": "apps/smartwallet/.stylelintrc.json",
+        "lintFilePatterns": [
+          "apps/smartwallet/**/*.css",
+          "apps/smartwallet/**/*.scss"
+        ]
+      }
     }
   },
   "tags": []

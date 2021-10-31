@@ -6,25 +6,6 @@ on:
   pull_request:
 
 jobs:
-  master:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' }}
-    steps:
-      - uses: actions/checkout@v2
-        name: Checkout [master]
-        with:
-          fetch-depth: 0
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn nx run-many --target=lint - --parallel --max-parallel=3
-      - run: yarn nx run-many --target=stylelint --all --parallel --max-parallel=3
-      - run: yarn nx run-many --target=test --all --parallel --max-parallel=3
-      - run: yarn nx run-many --target=build --all --parallel --max-parallel=3
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
@@ -41,6 +22,6 @@ jobs:
           cache: 'yarn'
       - run: yarn install
       - run: yarn nx run-many --target=lint --all --parallel --max-parallel=3
-      - run: yarn nx run-many --target=stylelint --all --parallel --max-parallel=3
+      - run: yarn nx run-many --target=stylelint --projects=smartwallet,ui --parallel --max-parallel=3
       - run: yarn nx run-many --target=test --all --parallel --max-parallel=3
       - run: yarn nx run-many --target=build --all --parallel --max-parallel=3

@@ -4,6 +4,7 @@
   margin: 50px auto;
   font-family: sans-serif;
 }
+
 .app :global(main) {
   padding: 0 36px;
 }
@@ -120,6 +121,7 @@
   background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
   background-position: -0.5em;
 }
+
 .app :global(.github-star-badge .material-icons) {
   width: 16px;
   height: 16px;

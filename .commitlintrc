@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "@commitlint/config-conventional"
+  ],
+  "rules": {
+    "scope-enum": [
+      2,
+      "always",
+      [
+        "all",
+        "smartwallet",
+        "smartwallet-e2e",
+        "ui",
+        "ui-e2e"
+      ]
+    ],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "revert"
+      ]
+    ],
+    "body-empty": [
+      0,
+      "always"
+    ]
+  }
+}

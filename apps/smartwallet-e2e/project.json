@@ -22,6 +22,16 @@
       "options": {
         "lintFilePatterns": ["apps/smartwallet-e2e/**/*.{js,ts}"]
       }
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "options": {
+        "config": "apps/smartwallet-e2e/.stylelintrc.json",
+        "lintFilePatterns": [
+          "apps/smartwallet-e2e/**/*.css",
+          "apps/smartwallet-e2e/**/*.scss"
+        ]
+      }
     }
   },
   "tags": [],

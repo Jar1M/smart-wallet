@@ -3,7 +3,7 @@
   "projects": {
     "smartwallet": "apps/smartwallet",
     "smartwallet-e2e": "apps/smartwallet-e2e",
-    "ui": "apps/ui",
+    "ui": "libs/ui",
     "ui-e2e": "apps/ui-e2e"
   }
 }
